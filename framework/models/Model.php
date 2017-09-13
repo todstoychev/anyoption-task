@@ -2,6 +2,9 @@
 
 namespace framework\models;
 
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\Yaml\Yaml;
+
 abstract class Model
 {
     /**
@@ -11,10 +14,11 @@ abstract class Model
 
     protected function initDB()
     {
-        $dbHost = 'localhost';
-        $dbName = 'site';
-        $dbUser = 'root';
-        $dbPass = 'deadmandrinking';
+        $config = $this->getConfig();
+        $dbHost = $config['host'];
+        $dbName = $config['database'];
+        $dbUser = $config['user'];
+        $dbPass = $config['password'];
 
         $this->pdo = new \PDO(
             'mysql:host='.$dbHost.';port=3306;dbname='.$dbName,
@@ -44,5 +48,24 @@ abstract class Model
     protected function getMockRow($mockData, $row)
     {
         return $mockData[$row];
+    }
+
+    /**
+     * @return mixed
+     */
+    protected function getConfig()
+    {
+        $configDirectories = [__DIR__.'/../../backend/conf'];
+
+        $locator = new FileLocator($configDirectories);
+        $files = $locator->locate('config.yml', null, false);
+        $config = [];
+
+        foreach ($files as $file) {
+            $data = Yaml::parse(file_get_contents($file));
+            $config = array_merge($config, $data);
+        }
+
+        return $config['database'];
     }
 }
