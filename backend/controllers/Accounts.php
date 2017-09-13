@@ -2,21 +2,28 @@
 
 namespace backend\controllers;
 
+use framework\components\AbstractController;
 use framework\models\UserModel;
+use Symfony\Component\HttpFoundation\Request;
 
-class Accounts
+class Accounts extends AbstractController
 {
     private $model;
 
-    public function __construct()
+    /**
+     * Accounts constructor.
+     * @param Request $request
+     */
+    public function __construct(Request $request)
     {
+        parent::__construct($request);
         $this->model = new UserModel();
     }
 
-    public function getUserAction($uid)
+    public function getUser($uid)
     {
         $result = $this->model->getUserData($uid);
 
-        return $result;
+        return json_encode($result);
     }
 }

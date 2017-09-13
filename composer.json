@@ -1,25 +1,31 @@
 {
-    "name": "todstoychev/anyoption-task",
-    "description": "Test task",
-    "type": "project",
-    "require": {
-        "robmorgan/phinx": "^0.9.1",
-        "symfony/http-foundation": "^3.3",
-        "twig/twig": "^2.4",
-        "symfony/dependency-injection": "^3.3",
-        "symfony/config": "^3.3",
-        "symfony/routing": "^3.3",
-        "symfony/debug": "^3.3"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^6.3"
-    },
-    "license": "Unknown",
-    "authors": [
-        {
-            "name": "todstoychev",
-            "email": "todstoychev@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev"
+  "name": "todstoychev/anyoption-task",
+  "description": "Test task",
+  "type": "project",
+  "require": {
+    "robmorgan/phinx": "^0.9.1",
+    "symfony/http-foundation": "^3.3",
+    "twig/twig": "^2.4",
+    "symfony/dependency-injection": "^3.3",
+    "symfony/config": "^3.3",
+    "symfony/routing": "^3.3",
+    "symfony/debug": "^3.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.3"
+  },
+  "license": "Unknown",
+  "authors": [
+    {
+      "name": "todstoychev",
+      "email": "todstoychev@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "framework\\": "framework/",
+      "backend\\": "backend/"
+    }
+  }
 }

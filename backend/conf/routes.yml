@@ -1,3 +1,3 @@
 user:
     path:     /backend/user/{id}
-    defaults: { _controller: 'controllers\Accounts:getUser' }
+    defaults: { _controller: 'backend\controllers\Accounts:getUser' }

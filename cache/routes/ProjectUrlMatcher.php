@@ -37,7 +37,7 @@ class ProjectUrlMatcher extends Symfony\Component\Routing\Matcher\UrlMatcher
 
         // user
         if (0 === strpos($pathinfo, '/backend/user') && preg_match('#^/backend/user/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'user')), array (  '_controller' => 'controllers\\Accounts:getUser',));
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'user')), array (  '_controller' => 'backend\\controllers\\Accounts:getUser',));
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

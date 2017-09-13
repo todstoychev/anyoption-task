@@ -1,5 +1,6 @@
 <?php
 
+use framework\components\RouteResolver;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\DependencyInjection\{
@@ -46,3 +47,7 @@ $router = new Router(
 );
 
 $container->set('router', $router);
+
+// Resolve routes
+$routeResolver = new RouteResolver($router, $container);
+echo $routeResolver->resolve($request);
