@@ -42,7 +42,7 @@ $requestContext->fromRequest($request);
 $router = new Router(
     new YamlFileLoader($locator),
     'routes.yml',
-    ['cache_dir' => __DIR__.'/cache/routes'],
+    ['cache_dir' => null], // Disable route caching
     $requestContext
 );
 
