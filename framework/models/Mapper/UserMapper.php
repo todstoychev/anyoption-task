@@ -18,7 +18,7 @@ class UserMapper
         $entity->setId($data['id'])
                ->setName($this->processName($data['name']))
                ->setEmail($data['email'])
-               ->setBirthDate(Carbon::createFromTimestamp($data['birth_date']))
+               ->setBirthDate(Carbon::createFromTimestamp(strtotime($data['birth_date'])))
         ;
 
         return $entity;

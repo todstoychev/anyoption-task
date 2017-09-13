@@ -37,7 +37,7 @@ class UserProvider
      */
     public function getUser(int $id): User
     {
-        $data = $this->model->getUserData($id);
+        $data = $this->model->getUser($id);
         $data['id'] = $id;
 
         return $this->mapper->map($data);
