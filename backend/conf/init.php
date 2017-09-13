@@ -1,4 +1,3 @@
 <?php
 
-require('../../framework/autoload.php');
-
+ require_once __DIR__.'/../index.php';
