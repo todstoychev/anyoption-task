@@ -12,6 +12,7 @@ class Accounts extends AbstractController
 
     /**
      * Accounts constructor.
+     *
      * @param Request $request
      */
     public function __construct(Request $request)
@@ -20,10 +21,13 @@ class Accounts extends AbstractController
         $this->model = new UserModel();
     }
 
-    public function getUser($uid)
+    public function getUser(int $uid)
     {
-        $result = $this->model->getUserData($uid);
+        $result =
+            $this->get('provider.user')
+                 ->getUser($uid)
+        ;
 
-        return json_encode($result);
+        return $this->view('accounts.html.twig', ['user' => $result]);
     }
 }

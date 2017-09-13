@@ -29,7 +29,7 @@ $loader->load('services.xml');
 // Set up TWIG template engine
 $loader = new Twig_Loader_Filesystem([__DIR__.'/backend/views']);
 $twig = new Twig_Environment($loader, array(
-    'cache' => __DIR__.'/cache/views',
+    'cache' => false,
 ));
 
 $container->set('view', $twig);

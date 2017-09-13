@@ -31,7 +31,10 @@ class RouteResolver implements ContainerAwareInterface
         $methodName = array_shift($parameters);
         unset($options['_controller']);
         unset($options['_route']);
+        /** @var \framework\components\AbstractController $controller */
+        $controller = new $className($request);
+        $controller->setContainer($this->container);
 
-        echo call_user_func_array([new $className($request), $methodName], $options);
+        echo call_user_func_array([$controller, $methodName], $options);
     }
 }

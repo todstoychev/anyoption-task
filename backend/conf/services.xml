@@ -10,5 +10,11 @@
     <services>
         <service id="view" synthetic="true"/>
         <service id="router" synthetic="true"/>
+        <service id="models.user" class="framework\models\UserModel"/>
+        <service id="mapper.user" class="framework\models\Mapper\UserMapper"/>
+        <service id="provider.user" class="framework\models\Provider\UserProvider">
+            <argument type="service" id="models.user"/>
+            <argument type="service" id="mapper.user"/>
+        </service>
     </services>
 </container>
