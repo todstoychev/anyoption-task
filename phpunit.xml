@@ -6,7 +6,10 @@
 >
     <testsuits>
         <testsuite name="DataProcessor">
-            <directory>tests/framework/DataProcessor</directory>
+            <directory>./tests/framework/DataProcessor</directory>
+        </testsuite>
+        <testsuite name="Mapper">
+            <directory>./tests/framework/models/Mapper</directory>
         </testsuite>
     </testsuits>
 </phpunit>

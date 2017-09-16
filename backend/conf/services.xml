@@ -19,5 +19,6 @@
             <argument type="service" id="mapper.user"/>
         </service>
         <service id="data_processor.user_name" class="framework/DataProcessor/UserNameProcessor"/>
+        <service id="data_processor.birth_date" class="=framework/DataProcessor/BirthDateProcessor"/>
     </services>
 </container>

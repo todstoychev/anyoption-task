@@ -3,6 +3,7 @@
 namespace framework\models\Mapper;
 
 use Carbon\Carbon;
+use framework\DataProcessor\BirthDateProcessor;
 use framework\DataProcessor\UserNameProcessor;
 use framework\models\Entity\User;
 
@@ -13,9 +14,21 @@ class UserMapper
      */
     protected $userNameProcessor;
 
-    public function __construct(UserNameProcessor $userNameProcessor)
+    /**
+     * @var \framework\DataProcessor\BirthDateProcessor
+     */
+    protected $birthDateProcessor;
+
+    /**
+     * UserMapper constructor.
+     *
+     * @param \framework\DataProcessor\UserNameProcessor $userNameProcessor
+     * @param \framework\DataProcessor\BirthDateProcessor $birthDateProcessor
+     */
+    public function __construct(UserNameProcessor $userNameProcessor, BirthDateProcessor $birthDateProcessor)
     {
         $this->userNameProcessor = $userNameProcessor;
+        $this->birthDateProcessor = $birthDateProcessor;
     }
 
     /**
@@ -29,7 +42,7 @@ class UserMapper
         $entity->setId($data['id'])
                ->setName($this->userNameProcessor->process($data['name']))
                ->setEmail($data['email'])
-               ->setBirthDate(Carbon::createFromTimestamp(strtotime($data['birth_date'])))
+               ->setBirthDate($this->birthDateProcessor->process($data['birth_date']))
         ;
 
         return $entity;
