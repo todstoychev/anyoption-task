@@ -4,5 +4,9 @@
         bootstrap="vendor/autoload.php"
         colors="true"
 >
-    <!-- ... -->
+    <testsuits>
+        <testsuite name="DataProcessor">
+            <directory>tests/framework/DataProcessor</directory>
+        </testsuite>
+    </testsuits>
 </phpunit>

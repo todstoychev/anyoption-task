@@ -27,7 +27,8 @@
   "autoload": {
     "psr-4": {
       "framework\\": "framework/",
-      "backend\\": "backend/"
+      "backend\\": "backend/",
+      "Tests\\": "tests/"
     }
   }
 }
