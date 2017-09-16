@@ -3,8 +3,9 @@
 namespace Tests\framework\models\Mapper;
 
 use Carbon\Carbon;
-use framework\DataProcessor\BirthDateProcessor;
-use framework\DataProcessor\UserNameProcessor;
+use framework\DataProcessor\{
+    BirthDateProcessor, UserNameProcessor
+};
 use framework\models\Entity\User;
 use framework\models\Mapper\UserMapper;
 use PHPUnit\Framework\TestCase;
@@ -50,7 +51,6 @@ class UserMapperTest extends TestCase
 
     public function testDataMapping()
     {
-
         $user = $this->mapper->map($this->data);
 
         static::assertInstanceOf(User::class, $user);
